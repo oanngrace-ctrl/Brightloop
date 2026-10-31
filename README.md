@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Brightloop Subscription Management System (Hackathon MVP)
 
 ## Requirements
@@ -45,3 +46,7 @@ Register another account to test customer registration. Admin can create staff a
 
 ## Important prototype limitations
 This is a hackathon starter, not a production billing platform. Password reset email, quotation templates, product variants and price add-ons, discount rules, automated recurring scheduler, partial-payment balance handling, customer-specific portal data, invoice PDF/email, CSRF protection, audit logs, and performance indexing/caching still need to be implemented. Do not use real customer/payment data or deploy with the demo secret/password.
+=======
+# Brightloop
+Brightloop is a Flask-based Subscription Management System designed to simplify subscription tracking, customer management, billing, invoicing, and payment monitoring through an organized and user-friendly web application.
+>>>>>>> 168f6634c7da38afd0330d5a838dd81493e4a73c
