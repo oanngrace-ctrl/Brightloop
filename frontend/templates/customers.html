@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2>Customers</h2>
+            <p class="text-muted">Manage your customers</p>
+        </div>
+        <span class="badge bg-info">
+            Total: {{ customers|length }}
+        </span>
+    </div>
+
+    <!-- Add Customer Form -->
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header">
+            <h5>Add New Customer</h5>
+        </div>
+
+        <div class="card-body">
+
+            <form method="POST" action="{{ url_for('customers') }}">
+
+                <div class="row">
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Customer Name</label>
+                        <input type="text"
+                               name="name"
+                               class="form-control"
+                               placeholder="Enter customer name"
+                               required>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email"
+                               name="email"
+                               class="form-control"
+                               placeholder="Enter email"
+                               required>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Company</label>
+                        <input type="text"
+                               name="company"
+                               class="form-control"
+                               placeholder="Enter company name">
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    + Add Customer
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Customer List -->
+
+    <div class="card shadow-sm">
+
+        <div class="card-header">
+            <h5>Customer List</h5>
+        </div>
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Company</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for customer in customers %}
+
+                        <tr>
+                            <td>{{ customer.id }}</td>
+                            <td>{{ customer.name }}</td>
+                            <td>{{ customer.email }}</td>
+                            <td>{{ customer.company or '-' }}</td>
+                        </tr>
+
+                        {% else %}
+
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">
+                                No customers added yet.
+                            </td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

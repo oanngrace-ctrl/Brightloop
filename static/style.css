@@ -1,0 +1,370 @@
+/* =====================================================
+   BRIGHTLOOP — LUXURY EDITION
+   Emerald • Champagne • Ivory • Gold
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+    --bg: #f5f1e8;
+    --surface: #fffdf8;
+    --surface-soft: #f9f6ef;
+
+    --emerald: #123c32;
+    --emerald-light: #1e5949;
+    --deep: #102a25;
+
+    --gold: #bd9955;
+    --gold-light: #e4cc98;
+
+    --text: #263b34;
+    --muted: #8a9188;
+    --border: #e9e1d1;
+
+    --success: #287c5d;
+    --danger: #b94d4d;
+
+    --shadow:
+        0 12px 35px rgba(42, 55, 42, 0.08);
+}
+
+/* GLOBAL */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background:
+        radial-gradient(circle at 10% 0%, #eee7d7 0, transparent 32%),
+        var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.container {
+    padding-top: 35px;
+    padding-bottom: 45px;
+}
+
+/* BRAND AND NAVIGATION */
+
+.navbar {
+    background: linear-gradient(
+        110deg,
+        #102a25,
+        #174538,
+        #102a25
+    ) !important;
+
+    padding: 17px 30px;
+    border-bottom: 1px solid rgba(228, 204, 152, 0.35);
+
+    box-shadow:
+        0 8px 30px rgba(16, 42, 37, 0.2);
+}
+
+.navbar-brand {
+    color: #f4e5bf !important;
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.navbar .nav-link {
+    color: #e5e6d9 !important;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 13px !important;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    background: rgba(228, 204, 152, 0.15);
+    color: #f0d49a !important;
+}
+
+/* HEADINGS */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--emerald);
+    font-weight: 700;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.2px;
+}
+
+h1 {
+    font-size: 34px;
+}
+
+h2 {
+    font-size: 27px;
+}
+
+p {
+    color: var(--muted);
+}
+
+/* CARDS */
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(42, 55, 42, 0.12);
+}
+
+.card-header {
+    background: linear-gradient(
+        110deg,
+        #f4eddd,
+        #fffdf8
+    );
+    color: var(--emerald);
+    border-bottom: 1px solid var(--border);
+    padding: 19px 23px;
+    font-weight: 700;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+/* BUTTONS */
+
+.btn {
+    border-radius: 9px;
+    padding: 10px 19px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    transition: all 0.25s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(
+        135deg,
+        #174538,
+        #24664f
+    );
+    border: 1px solid #bd9955;
+    color: #fff8e8;
+    box-shadow: 0 5px 15px rgba(18, 60, 50, 0.15);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(
+        135deg,
+        #bd9955,
+        #a67e3d
+    );
+    border-color: #bd9955;
+    color: #102a25;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: #287c5d;
+    border: none;
+}
+
+.btn-success:hover {
+    background: #195e45;
+}
+
+.btn-danger {
+    background: #a94444;
+    border: none;
+}
+
+.btn-danger:hover {
+    background: #853333;
+}
+
+.btn-warning {
+    background: #d8b66f;
+    border: none;
+    color: #302817;
+}
+
+/* FORMS */
+
+.form-label {
+    color: var(--emerald);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-control,
+.form-select {
+    background: #fffefa;
+    border: 1px solid #ded6c6;
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--text);
+}
+
+.form-control:focus,
+.form-select:focus {
+    background: #ffffff;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(189, 153, 85, 0.15);
+}
+
+/* TABLES */
+
+.table {
+    background: var(--surface);
+    border-radius: 12px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.table thead th {
+    background: #173e33;
+    color: #f0dfb8;
+    border: none;
+    padding: 17px 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.table tbody td {
+    color: #42564c;
+    padding: 15px;
+    border-color: #eee8dc;
+}
+
+.table tbody tr:hover {
+    background: #f8f3e9;
+}
+
+/* BADGES */
+
+.badge {
+    border-radius: 30px;
+    padding: 7px 12px;
+    font-weight: 700;
+}
+
+/* ALERTS */
+
+.alert {
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 15px 18px;
+}
+
+/* LINKS */
+
+a {
+    color: #8d6e36;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+a:hover {
+    color: var(--emerald);
+}
+
+/* DASHBOARD STATISTICS */
+
+.stat-card {
+    background: linear-gradient(
+        145deg,
+        #fffdf8,
+        #f0eadc
+    );
+    border: 1px solid #e5d9c3;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.stat-card h3 {
+    color: var(--emerald);
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.stat-card p {
+    color: #858779;
+    font-weight: 600;
+}
+
+/* LOGIN AND REGISTER */
+
+.login-container {
+    max-width: 460px;
+    margin: 55px auto;
+    padding: 38px;
+    background: var(--surface);
+    border: 1px solid var(--gold-light);
+    border-radius: 20px;
+    box-shadow: 0 18px 50px rgba(16, 42, 37, 0.12);
+}
+
+/* PAGINATION */
+
+.page-link {
+    color: var(--emerald);
+    border-color: var(--border);
+}
+
+.page-item.active .page-link {
+    background: var(--emerald);
+    border-color: var(--gold);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 16px;
+    }
+
+    .container {
+        padding: 20px 14px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .card-body {
+        padding: 17px;
+    }
+
+    .table {
+        font-size: 12px;
+    }
+}
+
+/* SELECTION */
+
+::selection {
+    background: #d9c28f;
+    color: #102a25;
+}

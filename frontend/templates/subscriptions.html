@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">Subscription Management</h2>
+
+    <!-- Create Subscription -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header">
+            <h5 class="mb-0">Create New Subscription</h5>
+        </div>
+
+        <div class="card-body">
+            <form method="POST" action="{{ url_for('subscriptions') }}">
+
+                <div class="mb-3">
+                    <label class="form-label">Select Customer</label>
+                    <select name="customer_id" class="form-select" required>
+                        <option value="">Select Customer</option>
+                        {% for customer in customers %}
+                        <option value="{{ customer.id }}">
+                            {{ customer.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Select Plan</label>
+                    <select name="plan_id" class="form-select" required>
+                        <option value="">Select Plan</option>
+                        {% for plan in plans %}
+                        <option value="{{ plan.id }}">
+                            {{ plan.name }} - ₹{{ "%.2f"|format(plan.price) }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Start Date</label>
+                    <input type="date" name="start_date"
+                           class="form-control"
+                           min="{{ today }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">End Date</label>
+                    <input type="date" name="end_date"
+                           class="form-control">
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Create Subscription
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Subscription List -->
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h5 class="mb-0">All Subscriptions</h5>
+        </div>
+
+        <div class="card-body table-responsive">
+            <table class="table table-bordered table-hover">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Customer</th>
+                        <th>Plan</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for subscription in subscriptions %}
+                    <tr>
+                        <td>{{ subscription.id }}</td>
+                        <td>{{ subscription.customer.name }}</td>
+                        <td>{{ subscription.plan.name }}</td>
+                        <td>{{ subscription.start_date.strftime('%d-%m-%Y') }}</td>
+                        <td>
+                            {% if subscription.end_date %}
+                                {{ subscription.end_date.strftime('%d-%m-%Y') }}
+                            {% else %}
+                                —
+                            {% endif %}
+                        </td>
+                        <td>{{ subscription.status }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            No subscriptions available.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
